@@ -76,7 +76,7 @@ public class Program
     static void WriteCharactersToFile(List<Character> characters)
     {
         var lines = new List<string> { "Name, Class, Level, Equipment" };
-        lines.AddRange(characters.Select(c => $"{c.name}, {c.characterClass},{c.level}, {c.equipment}"));
+        lines.AddRange(characters.Select(c => $"{c.name}, {c.characterClass}, {c.level}, {c.equipment}"));
         File.WriteAllLines(filePath, lines);
     }
 
