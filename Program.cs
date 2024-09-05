@@ -57,7 +57,7 @@ public class Program
         var lines = File.ReadAllLines(filePath);
         foreach (var line in lines.Skip(1)) // Skip header
         {
-            var parts = line.Split('|');
+            var parts = line.Split(',');
             if (parts.Length == 4)
             {
                 characters.Add(new Character
@@ -65,7 +65,7 @@ public class Program
                     name = parts[0],
                     characterClass = parts[1],
                     level = int.Parse(parts[2]),
-                    equipment = parts[3].Split(',')
+                    equipment = parts[3].Split('|')
                 });
             }
         }
@@ -130,7 +130,7 @@ public class Program
         }
 
         // Input for character's equipment
-        Console.Write("Enter your character's equipment (separate items with a ','): ");
+        Console.Write("Enter your character's equipment (separate items with a '|'): ");
         string[] equipment = Console.ReadLine().Split('|');
 
         // Displays the user's input for the character
